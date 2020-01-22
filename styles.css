@@ -1,3 +1,4 @@
 body {
-    background-image: radial-gradient(blue, orange);
+    text-align: center;
+    background: linear-gradient(to top, green, red)
 }
