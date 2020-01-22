@@ -5,17 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gradient Color background Generator</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     
 </head>
 <body id="mainBody">
     <h1>TWO-COLOR BACKGROUND GENERATOR</h1>
-    Color Picker 1 <input type="color" id="picker1"><br>
-    Color Picker 2 <input type="color" id="picker2">
-
+    
+    <div id="typeSelector">
+        <p>Select the gradient direction</p>
+        
+        <div id="linear">
+            Linear<br>
+            <input type="radio" name="direction" value="left">LEFT<br>
+            <input type="radio" name="direction" value="right">RIGHT<br>
+            <input type="radio" name="direction" value="top">TOP<br>
+            <input type="radio" name="direction" value="bottom">BOTTOM<br>
+        </div>
+        
+        <div id="radial">
+            Radial<br>
+            <input type="radio" name="direction" value="radial">RADIAL<br>
+        </div>
+        
+    </div>
+    <div>
+        Color 1 <input type="color" id="picker1" value="#ffffff">
+        Color 2 <input type="color" id="picker2" value="#ffffff">
+    </div>
+    
     <h3></h3>
 
-
     <script src="script.js"></script>
+    <script src="jquery-3.4.1.js"></script>
+
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

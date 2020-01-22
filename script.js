@@ -1,27 +1,50 @@
-// alert ("Yana aiki")
-// let colorValue1 = document.querySelector("#picker1");
-// let colorValue2 = document.querySelector("#picker2");
+let css = document.querySelector("h3");
+let color1 = document.querySelector("#picker1");
+let color2 = document.querySelector("#picker2");
+let body = document.getElementById("mainBody");
+// let gradientType = document.querySelector("#linear input")
 
-// let clickEvent = colorValue1.addEventListener("click", ()=>{
-//     alert('button clicked');
-//     let colorResult = colorValue1;
-//     console.log(colorResult);
-//     return colorResult;
-// });
+let typeSelector = ()=>{
+    let directionLinear = [...document.querySelectorAll("#linear input")];
 
-var css = document.querySelector("h3");
-var color1 = document.querySelector("#picker1");
-var color2 = document.querySelector("#picker2");
-var body = document.getElementById("mainBody");
-
-let setGradient =()=> {
-   body.style.background = "linear-gradient(to right, " + color1.value + ", " +  color2.value + ")"
-    // body.style.background =  "linear-gradient(to left, color1.value, black)";
+    directionLinear.map(item=>{
+        let click = item.addEventListener("click", ()=>{
+            console.log(item.value)
+            if(item.value === 'left'){
+                getInput("left");  
+            }
+            else if(item.value === 'right'){
+                getInput("right");  
+              }
+            else if(item.value === 'top'){
+                getInput("top");  
+            }
+            else{
+                getInput("bottom");   
+            }
+        })
+        return click;
+    })
+    console.log(directionLinear);
+}
+let setGradient =(dir)=> {
+   body.style.background = "linear-gradient(to " + dir + ", " + color1.value + ", " +  color2.value + ")"
     css.textContent = body.style.background + ";";
     console.log(body.style.background)
 }
-
- color1.addEventListener("input", setGradient);
-
- color2.addEventListener("input", setGradient);
-  console.log(color1.value)
+let setGrad =()=> {
+    let dir = 'right';
+    body.style.background = "linear-gradient(to " + dir + ", " + color1.value + ", " +  color2.value + ")"
+     css.textContent = body.style.background + ";";
+     console.log(body.style.background)
+ }
+let getInput =(dir)=>{
+     color1.addEventListener("input", setGradient(dir));
+     color2.addEventListener("input", setGradient(dir));
+}
+let getInp =()=>{
+    color1.addEventListener("input", setGrad);
+    color2.addEventListener("input", setGrad);
+}
+ typeSelector();
+ getInp();
